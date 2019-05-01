@@ -4,8 +4,8 @@
       <h1 class="card-header-title is-centered">{{describe.title}}</h1>
     </div>
     <div class="card-content">
-      <p class="subtitle is-6">
-        <span v-html="convertText(describe.body)"></span>
+      <p class="subtitle is-6" v-if="describe.body">
+        <span v-html="renderTextMarkdown(describe.body)"></span>
       </p>
       <span
         class="subtitle is-6"
@@ -21,7 +21,7 @@
 <script>
 import { removeCharacts } from '@/filters/removeSpecialCharacters'
 import { limitTo } from '@/filters/limitCharacters'
-import markDown from 'markdown-it'
+import { renderMarkdown } from '@/filters/markDownRender'
 
 export default {
   props: {
@@ -36,13 +36,8 @@ export default {
     }
   },
   methods: {
-    convertText (value) {
-      if (value) {
-        let MarkdownIt = markDown
-        let md = new MarkdownIt()
-        let text = md.render(value)
-        return text
-      }
+    renderTextMarkdown (value) {
+      return renderMarkdown(value)
     }
   },
   computed: {
@@ -52,9 +47,12 @@ export default {
 
 <style lang='scss'>
 @import '@/assets/style/scss/color.scss';
-  h3 {
+  h3, h2 {
     font-size: 24px;
     font-weight: bold;
     margin: 20px;
+  }
+  h2 {
+    font-size: 20px;
   }
 </style>
