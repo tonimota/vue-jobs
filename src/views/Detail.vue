@@ -7,6 +7,7 @@
 <script>
 import { getIssueDetail } from '@/service/api'
 import DetailCard from '@/components/DetailCard'
+
 export default {
   components: {
     'detai-card': DetailCard
@@ -28,7 +29,6 @@ export default {
     getIssueDetail(`${this.filter.category}/${this.filter.name}/${this.filter.label}/${this.filter.type}/${this.id}`)
       .then(response => {
         this.detail = response.data
-        console.log(this.detail)
       })
       .catch(err => {
         console.log(err)
