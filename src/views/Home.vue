@@ -37,7 +37,7 @@ export default {
     }
   },
   created () {
-    getJobs(`${this.filter.category}/${this.filter.name}/${this.filter.label}/${this.filter.type}`)
+    getJobs(`${this.filter.category}/${this.filter.name}/${this.filter.label}/${this.filter.type}?state=open`)
       .then(response => {
         this.list = response.data
         // console.log(this.list)
