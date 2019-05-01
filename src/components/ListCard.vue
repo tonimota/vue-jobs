@@ -3,14 +3,13 @@
     <div class="column is-4" v-for="(item, index) in list" :key="index">
       <router-link :to="`/detail/${item.number}`">
         <div class="box" >
-          <p class="title is-5">{{item.title}}</p>
-          <p class="subtitle">{{item.body | limitTo(50)}}</p>
+          <p class="title is-5">{{item.title | limitTo(50)}}</p>
           <p class="labels">
             <span
               class="text-bold"
               v-for="(label, key) in item.labels"
               :key="key"
-              :class="label.name | removeCharacts">{{label.name | removeCharacts}}
+              :class="label.name | removeCharacts">#{{label.name | removeCharacts}}
             </span>
           </p>
         </div>
@@ -51,8 +50,6 @@ export default {
         return this.itens
       }
     }
-  },
-  methods: {
   }
 }
 </script>
