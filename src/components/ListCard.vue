@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-multiline">
     <div class="column is-4" v-for="(item, index) in list" :key="index">
-      <router-link :to="'/detail/' + item.number">
+      <router-link :to="`/detail/${item.number}`">
         <div class="box" >
           <p class="title is-5">{{item.title}}</p>
           <p class="subtitle">{{item.body | limitTo(50)}}</p>
@@ -57,29 +57,6 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-  .text-bold {
-    font-weight: bold;
-  }
-  .clt {
-    color: purple
-  }
-  .alocado {
-    color: green;
-  }
-  .pj {
-    color: red;
-  }
-  .junior {
-    color: yellow;
-  }
-  .pleno {
-    color: pink;
-  }
-  .senior {
-    color: blue;
-  }
-  .estagio {
-    color: brown;
-  }
+<style lang='scss'>
+@import '@/assets/style/scss/color.scss';
 </style>

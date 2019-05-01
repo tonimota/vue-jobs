@@ -1,20 +1,16 @@
 <template>
-  <div class="detail">
-    <p>Params: {{$route.params.id}}</p>
-    <h1 class="title is-5">{{detail.title}}</h1>
-    <p class="subtitle is-6">{{detail.body}}</p>
-    <span
-      class="subtitle is-6"
-      v-for="(label, index) in detail.labels"
-      :key="index">
-      {{label.name}}
-    </span>
+  <div class="container detail">
+    <detai-card :describe="this.detail"></detai-card>
   </div>
 </template>
 
 <script>
 import { getIssueDetail } from '@/service/api'
+import DetailCard from '@/components/DetailCard'
 export default {
+  components: {
+    'detai-card': DetailCard
+  },
   data () {
     return {
       filter: {

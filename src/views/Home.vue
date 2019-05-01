@@ -17,7 +17,7 @@
 <script>
 // @ is an alias to /src
 import { getJobs } from '@/service/api.js'
-import Card from '@/components/Card'
+import Card from '@/components/ListCard'
 
 export default {
   name: 'home',
